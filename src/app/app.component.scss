@@ -1,0 +1,38 @@
+@import './../colors.scss';
+.app-toolbar {
+  // color: $white;
+  // background: $primary-color;
+  margin-top: -8px;
+  margin-left: -8px;
+  margin-right: -16px;
+  border: 0px;
+}
+
+.app-sidenav {
+  position: absolute;
+  top: 64px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  mat-sidenav {
+    div {
+      cursor: pointer;
+      padding: 16px;
+      &:hover {
+        background: $primary-color-dark;
+        color: $white;
+      }
+    }
+  }
+}
+
+.active {
+  background: $primary-color-dark;
+  color: $white;
+}
+
+.sidenav-content {
+  display: flex;
+  height: 100%;
+  overflow: scroll;
+}

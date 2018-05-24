@@ -1,0 +1,56 @@
+<mat-card-title>
+  Overview
+</mat-card-title>
+<mat-card-content>
+  <h3 *ngIf="bulbColor">Bulb color: {{ bulbColor }}</h3>
+  <!-- <div 
+    fxLayout="row"  
+  >
+    <mat-form-field class="margin-right-16">
+      <input matInput [matDatepicker]="fromPicker" placeholder="From">
+      <mat-datepicker-toggle matSuffix [for]="fromPicker"></mat-datepicker-toggle>
+      <mat-datepicker #fromPicker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="toPicker" placeholder="To">
+      <mat-datepicker-toggle matSuffix [for]="toPicker"></mat-datepicker-toggle>
+      <mat-datepicker #toPicker></mat-datepicker>
+    </mat-form-field>
+  </div> -->
+  <div 
+    fxLayout="column"
+    *ngIf="values.length"
+  >
+    <h3>Consumption in the last 24 hours</h3>
+    <ngx-charts-line-chart
+      [view]="view"
+      [results]="values"
+      xAxis="true"
+      yAxis="true"
+      legend="true"
+      xAxisLabel="Time"
+      yAxisLabel="Consumption(pence)"
+      showXAxisLabel="true"
+      showYAxisLabel="true">
+    </ngx-charts-line-chart>
+    <h3>Total consumption in the last 24 hours</h3>
+    <ngx-charts-bar-vertical
+      [view]="barView"
+      [results]="barValues"
+      xAxis="true"
+      yAxis="true"
+      legend="true"
+      xAxisLabel="Time"
+      yAxisLabel="Consumption(pence)"
+      showXAxisLabel="true"
+      showYAxisLabel="true">
+    </ngx-charts-bar-vertical>
+  </div>
+  <div *ngIf="!values.length">
+      <div fxLayout="column"
+      fxLayoutAlign="center center">
+      <h4>Loading stats...</h4>
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</mat-card-content>
